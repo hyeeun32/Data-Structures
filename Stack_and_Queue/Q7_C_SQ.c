@@ -93,7 +93,7 @@ int main()
 			break;
 		default:
 			printf("Choice unknown;\n");
-			break;
+			break;  
 		}
 
 	}
