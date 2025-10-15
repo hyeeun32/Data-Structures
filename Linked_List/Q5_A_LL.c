@@ -58,6 +58,7 @@ int main()
 	printf("2: Split the linked list into two linked lists, frontList and backList:\n");
 	printf("0: Quit:\n");
 
+	c = 1;
 	while (c != 0)
 	{
 	    printf("Please input your choice(1/2/0): ");
@@ -102,7 +103,19 @@ int main()
 
 void frontBackSplitLinkedList(LinkedList *ll, LinkedList *resultFrontList, LinkedList *resultBackList)
 {
-	/* add your code here */
+	int sp = ll->size - (ll->size / 2);
+	ListNode* current;
+	current = ll->head;
+	for (int i=0; i<ll->size; i++){
+		if (i<sp){
+			insertNode(resultFrontList, i, current->item);
+			current = current->next;
+		}
+		else{
+			insertNode(resultBackList, i-sp, current->item);
+			current = current->next;
+		}
+	}
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
