@@ -80,6 +80,10 @@ int main()
                 printf("\nThe values stored in all nodes of the tree that has at least one great-grandchild are: ");
                 hasGreatGrandchild(root);
                 removeAll(&root);
+<<<<<<< HEAD
+=======
+                printf("\n");
+>>>>>>> 78001a86b5caf3c3f5a2e46061c61a223eaa1aa2
                 break;
             case 0:
                 removeAll(&root);
@@ -102,7 +106,29 @@ int main()
 
 int hasGreatGrandchild(BTNode *node)
 {
+<<<<<<< HEAD
 	/* add your code here */
+=======
+	/*
+    if (node == NULL){
+        return -1;
+    }
+    int ld = maxHeight(node->left);
+    int rd = maxHeight(node->right);
+    return ld>rd ? ld+1 : rd+1; */
+
+    if (node == NULL){
+        return -1;
+    }
+    int ld = hasGreatGrandchild(node->left);
+    int rd = hasGreatGrandchild(node->right);
+
+    if (ld >= 2 || rd >= 2){
+        printf("%d", node->item);
+    }
+
+    return ld>rd ? ld+1 : rd+1;
+>>>>>>> 78001a86b5caf3c3f5a2e46061c61a223eaa1aa2
 }
 
 //////////////////////////////////////////////////////////////////////////////////

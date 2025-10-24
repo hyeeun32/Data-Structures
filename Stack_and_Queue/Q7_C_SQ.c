@@ -93,7 +93,11 @@ int main()
 			break;
 		default:
 			printf("Choice unknown;\n");
+<<<<<<< HEAD
 			break;
+=======
+			break;  
+>>>>>>> 78001a86b5caf3c3f5a2e46061c61a223eaa1aa2
 		}
 
 	}
