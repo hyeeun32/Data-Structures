@@ -64,7 +64,7 @@ extern char **environ; /* Defined by libc */
 void unix_error(char *msg);
 void posix_error(int code, char *msg);
 void dns_error(char *msg);
-void gai_error(int code, char *msg);
+void Gai_error(int code, char *msg);
 void app_error(char *msg);
 
 /* Process control wrappers */
@@ -145,11 +145,11 @@ int Accept(int s, struct sockaddr *addr, socklen_t *addrlen);
 void Connect(int sockfd, struct sockaddr *serv_addr, int addrlen);
 
 /* Protocol independent wrappers */
-void Getaddrinfo(const char *node, const char *service, 
+void Get_addrinfo(const char *node, const char *service, 
                  const struct addrinfo *hints, struct addrinfo **res);
 void Getnameinfo(const struct sockaddr *sa, socklen_t salen, char *host, 
                  size_t hostlen, char *serv, size_t servlen, int flags);
-void Freeaddrinfo(struct addrinfo *res);
+void Free_addrinfo(struct addrinfo *res);
 void Inet_ntop(int af, const void *src, char *dst, socklen_t size);
 void Inet_pton(int af, const char *src, void *dst); 
 
