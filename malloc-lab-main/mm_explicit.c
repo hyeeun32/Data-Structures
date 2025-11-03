@@ -277,12 +277,14 @@ static void place(void *bp, size_t asize)
 
 static void insert_node(void *bp)
 {
-    if (bp == NULL) {
+    if (bp == NULL)
+    {
         return;
     }
     SUCC(bp) = free_listp;
     PRED(bp) = NULL;
-    if (free_listp != NULL) {
+    if (free_listp != NULL)
+    {
         PRED(free_listp) = bp;
     }
     free_listp = bp;
@@ -290,16 +292,20 @@ static void insert_node(void *bp)
 
 static void remove_node(void *bp)
 {
-    if (bp == NULL) {
+    if (bp == NULL)
+    {
         return;
     }
-    if (PRED(bp)) {
+    if (PRED(bp))
+    {
         SUCC(PRED(bp)) = SUCC(bp);
     }
-    else {
+    else
+    {
         free_listp = SUCC(bp);
     }
-    if (SUCC(bp)) {
+    if (SUCC(bp))
+    {
         PRED(SUCC(bp)) = PRED(bp);
     }
 }
