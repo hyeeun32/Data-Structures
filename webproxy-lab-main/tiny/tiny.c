@@ -47,28 +47,6 @@ int main(int argc, char **argv)
 
 void doit(int fd)
 {
-<<<<<<< HEAD
-}
-void read_requesthdrs(rio_t *rp)
-{
-}
-int parse_uri(char *uri, char *filename, char *cgiargs)
-{
-}
-void serve_static(int fd, char *filename, int filesize)
-{
-}
-void get_filetype(char *filename, char *filetype)
-{
-}
-void serve_dynamic(int fd, char *filename, char *cgiargs)
-{
-}
-void clienterror(int fd, char *cause, char *errnum, char *shortmsg,
-                 char *longmsg)
-{
-}
-=======
   int is_static;
   struct stat sbuf;
   char buf[MAXLINE], method[MAXLINE], uri[MAXLINE], version[MAXLINE];
@@ -187,7 +165,7 @@ void serve_static(int fd, char *filename, int filesize)
   Close(srcfd);
 
   Rio_writen(fd, srcp, filesize);
-  free(srcp)
+  free(srcp);
 }
 void get_filetype(char *filename, char *filetype)
 {
@@ -255,4 +233,3 @@ void clienterror(int fd, char *cause, char *errnum, char *shortmsg, char *longms
   Rio_writen(fd, buf, strlen(buf));
   Rio_writen(fd, body, strlen(body));
 }
->>>>>>> 9936727c99dbed4d573cd2431ddb9da30975f4b7
