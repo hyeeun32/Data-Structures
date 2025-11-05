@@ -22,6 +22,8 @@
  *   - rio_readnb: removed redundant EINTR check
  */
 /* $begin csapp.c */
+#define _GNU_SOURCE
+#define _POSIX_C_SOURCE 200112L
 #include "csapp.h"
 
 /************************** 
@@ -42,7 +44,7 @@ void posix_error(int code, char *msg) /* Posix-style error */
     exit(0);
 }
 
-void gai_error(int code, char *msg) /* Getaddrinfo-style error */
+void Gai_error(int code, char *msg) /* Getaddrinfo-style error */
 {
     fprintf(stderr, "%s: %s\n", msg, gai_strerror(code));
     exit(0);
@@ -599,13 +601,13 @@ void Connect(int sockfd, struct sockaddr *serv_addr, int addrlen)
  * Protocol-independent wrappers
  *******************************/
 /* $begin getaddrinfo */
-void Getaddrinfo(const char *node, const char *service, 
+void Get_addrinfo(const char *node, const char *service, 
                  const struct addrinfo *hints, struct addrinfo **res)
 {
     int rc;
 
     if ((rc = getaddrinfo(node, service, hints, res)) != 0) 
-        gai_error(rc, "Getaddrinfo error");
+        Gai_error(rc, "Getaddrinfo error");
 }
 /* $end getaddrinfo */
 
@@ -616,10 +618,10 @@ void Getnameinfo(const struct sockaddr *sa, socklen_t salen, char *host,
 
     if ((rc = getnameinfo(sa, salen, host, hostlen, serv, 
                           servlen, flags)) != 0) 
-        gai_error(rc, "Getnameinfo error");
+        Gai_error(rc, "Getnameinfo error");
 }
 
-void Freeaddrinfo(struct addrinfo *res)
+void Free_addrinfo(struct addrinfo *res)
 {
     freeaddrinfo(res);
 }
@@ -1065,7 +1067,3 @@ int Open_listenfd(char *port)
 }
 
 /* $end csapp.c */
-
-
-
-
